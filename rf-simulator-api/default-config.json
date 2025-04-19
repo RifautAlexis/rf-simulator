@@ -1,0 +1,44 @@
+{
+    "modules": [
+        {
+            "id": "1",
+            "name": "Amplifier",
+            "config": {
+                "temperature": 36.6,
+                "power": 50.97
+            }
+        },
+        {
+            "id": "2",
+            "name": "Power Supply",
+            "config": {
+                "temperature": 59.23,
+                "power": 33
+            }
+        },
+        {
+            "id": "3",
+            "name": "Antenna",
+            "config": {
+                "temperature": 45.12,
+                "power": 12.5
+            }
+        },
+        {
+            "id": "4",
+            "name": "RF Switch",
+            "config": {
+                "temperature": 22.5,
+                "power": 0.5
+            }
+        },
+        {
+            "id": "5",
+            "name": "RF Cable",
+            "config": {
+                "temperature": 30.0,
+                "power": 0.1
+            }
+        }
+    ]
+}
