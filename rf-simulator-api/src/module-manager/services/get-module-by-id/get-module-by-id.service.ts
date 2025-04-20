@@ -8,6 +8,6 @@ export class GetModuleByIdService {
   constructor(private readonly db: LowdbService) {}
 
   getByIdModules(moduleId: string): Module | undefined {
-    return undefined;
+    return this.db.getModuleById(moduleId);
   }
 }
