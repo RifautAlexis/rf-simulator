@@ -1,16 +1,13 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Scope } from '@nestjs/common';
 import { Module } from 'src/common/models/module';
 import { LowdbService } from 'src/core/database/lowdb.service';
 
-@Injectable()
+@Injectable({scope: Scope.REQUEST})
 export class GetModuleByIdService {
-  private readonly db: LowdbService;
-
-  constructor() {
-    this.db = new LowdbService();
-  }
+  
+  constructor(private readonly db: LowdbService) {}
 
   getByIdModules(moduleId: string): Module | undefined {
-    return this.db.getModuleById(moduleId);
+    return undefined;
   }
 }

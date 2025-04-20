@@ -7,11 +7,13 @@ import { Module } from '../../common/models/module';
 export class LowdbService {
   private db: LowSync<{ modules: Module[] }>;
 
-  constructor(private readonly filename: string = 'default-config.json') {
+  constructor() {
+    const filName = 'default-config.json';
     const defaultData = { modules: [] }
-    this.db = JSONFileSyncPreset<{ modules: Module[] }>(filename, defaultData);
+    
+    this.db = JSONFileSyncPreset<{ modules: Module[] }>(filName, defaultData);
     this.db.read();
-    console.log(this.db.data);
+    console.log('Database initialized with filename:', filName);
   }
   
   getAllModules(): Module[] {
