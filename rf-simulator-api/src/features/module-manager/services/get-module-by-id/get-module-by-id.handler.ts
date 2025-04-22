@@ -3,7 +3,7 @@ import { Module } from 'src/common/models/module';
 import { LowdbService } from 'src/core/database/lowdb.service';
 
 @Injectable({scope: Scope.REQUEST})
-export class GetModuleByIdService {
+export class GetModuleByIdHandler {
   
   constructor(private readonly db: LowdbService) {}
 

@@ -5,14 +5,13 @@ import { Module } from '../../common/models/module';
 
 @Injectable()
 export class LowdbService {
-  private db: LowSync<{ modules: Module[] }>;
+  db: LowSync<{ modules: Module[] }>;
 
   constructor() {
     const filName = 'default-config.json';
     const defaultData = { modules: [] }
     
     this.db = JSONFileSyncPreset<{ modules: Module[] }>(filName, defaultData);
-    this.db.read();
     console.log('Database initialized with filename:', filName);
   }
   

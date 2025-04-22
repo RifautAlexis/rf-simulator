@@ -1,5 +1,6 @@
 export interface Module<T = unknown> {
-    id: string;
-    name: string;
-    config: T;
-    }
+  type: number;
+  name: string;
+  slot: number;
+  config: T;
+}
