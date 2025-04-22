@@ -1,5 +1,5 @@
 import { Module } from "src/common/models/module";
 
-export interface GetAllModuleByIdResponse {
+export interface GetAllModuleBySlotResponse {
   modules: Module;
 }

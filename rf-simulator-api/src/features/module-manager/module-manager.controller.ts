@@ -12,8 +12,8 @@ export class ModuleManagerController {
     return this.service.getAllModules();
   }
 
-  @Get(':moduleId')
-  getModuleById(@Param('moduleId') moduleId: string) {
-    return this.service.getModuleById(moduleId);
+  @Get(':slot')
+  getModuleById(@Param('slot') slot: number) {
+    return this.service.getModuleBySlot(slot);
   }
 }

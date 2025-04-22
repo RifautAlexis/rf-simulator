@@ -20,14 +20,14 @@ export class LowdbService {
     return this.db.data.modules;
   }
 
-  getModuleById(id: string): Module | undefined {
+  getModuleBySlot(slot: number): Module | undefined {
     this.db.read();
-    return this.db.data.modules.find(module => (module as any).id === id);
+    return this.db.data.modules.find(module => (module as any).slot === slot);
   }
 
-  update(id: string, newItem: Partial<Module>): boolean {
+  update(slot: number, newItem: Partial<Module>): boolean {
     this.db.read();
-    const index = this.db.data.modules.findIndex(item => (item as any).id === id);
+    const index = this.db.data.modules.findIndex(item => (item as any).slot === slot);
     if (index === -1) return false;
 
     this.db.data.modules[index] = { ...this.db.data.modules[index], ...newItem };

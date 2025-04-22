@@ -1,83 +1,83 @@
 {
   "modules": [
     {
-      "id": "1",
+      "slot": 1,
       "name": "Amplifier",
       "config": {
-        "temperature": 36.6,
-        "power": 50.97
+        "temperature": 0.6776361309466767,
+        "gain": -0.05757530464354499
       }
     },
     {
-      "id": "2",
+      "slot": 2,
       "name": "Power Supply",
       "config": {
-        "temperature": 59.23,
-        "power": 33
+        "temperature": 0.7063602044504811,
+        "gain": -0.21867092491675577
       }
     },
     {
-      "id": "3",
+      "slot": 3,
       "name": "Antenna",
       "config": {
-        "temperature": 45.12,
-        "power": 12.5
+        "temperature": -0.932998237244743,
+        "gain": 0.19669735342569572
       }
     },
     {
-      "id": "4",
+      "slot": 4,
       "name": "RF Switch",
       "config": {
-        "temperature": 22.5,
-        "power": 0.5
+        "temperature": -0.7318425639948916,
+        "gain": -0.09166815318916055
       }
     },
     {
-      "id": "5",
+      "slot": 5,
       "name": "RF Cable",
       "config": {
-        "temperature": 30,
-        "power": 0.1
+        "temperature": -0.5733091180451946,
+        "gain": 0.020651574508483206
       }
     },
     {
-      "id": "6",
+      "slot": 6,
       "name": "RF Load",
       "config": {
-        "temperature": 25,
-        "power": 0.01
+        "temperature": -0.681135641735144,
+        "gain": -0.06222626910186135
       }
     },
     {
-      "id": "7",
+      "slot": 7,
       "name": "RF Detector",
       "config": {
-        "temperature": 20,
-        "power": 0.001
+        "temperature": 0.21288555014575783,
+        "gain": -0.03791725518586453
       }
     },
     {
-      "id": "8",
+      "slot": 8,
       "name": "RF Mixer",
       "config": {
-        "temperature": 28,
-        "power": 0.2
+        "temperature": -0.8769338201634107,
+        "gain": 0.15810458074483758
       }
     },
     {
-      "id": "9",
+      "slot": 9,
       "name": "RF Filter",
       "config": {
-        "temperature": 35,
-        "power": 0.05
+        "temperature": -0.16013367036284887,
+        "gain": 0.09103364262410985
       }
     },
     {
-      "id": "10",
+      "slot": 10,
       "name": "RF Attenuator",
       "config": {
-        "temperature": 40,
-        "power": 0.1
+        "temperature": -0.628172417625561,
+        "gain": 0.1255569610027505
       }
     }
   ]
