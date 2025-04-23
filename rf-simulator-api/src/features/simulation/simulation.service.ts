@@ -1,25 +1,30 @@
 import { Injectable, OnApplicationBootstrap } from "@nestjs/common";
 import { Interval } from "@nestjs/schedule";
 import { LowdbService } from "src/core/database/lowdb.service";
+import { SimulationGateway } from "./simulation.gateway";
 
 @Injectable()
 export class SimulationService implements OnApplicationBootstrap {
   private currentModuleSlot = 1;
-  constructor(private readonly dbService: LowdbService) {}
+  constructor(
+    private readonly dbService: LowdbService,
+    private readonly simulationGateway: SimulationGateway,
+  ) {}
 
-  @Interval(1000)
   onApplicationBootstrap() {
     this.startSimulation();
+    this.emitToClients()
   }
 
-  //   @Interval(1000)
+  @Interval(1000)
   startSimulation() {
+    const modulesLength = this.dbService.getAllModules().length;
     const module = this.dbService.getModuleBySlot(this.currentModuleSlot);
 
     if (!module) {
       console.log("No module found for slot", this.currentModuleSlot);
 
-      this.currentModuleSlot++;
+      this.currentModuleSlot >= modulesLength ? this.currentModuleSlot = 1 : this.currentModuleSlot++;
 
       return;
     }
@@ -34,8 +39,14 @@ export class SimulationService implements OnApplicationBootstrap {
 
     this.dbService.update(module.slot, moduleToUpdate);
 
-    this.currentModuleSlot++;
+    this.currentModuleSlot >= modulesLength ? this.currentModuleSlot = 1 : this.currentModuleSlot++;
 
     console.log("Simulated RF module updates:", moduleToUpdate);
+  }
+
+  @Interval(1000)
+  emitToClients() {
+    const modules = this.dbService.getAllModules();
+    this.simulationGateway.emitToClients("modules", modules);
   }
 }
