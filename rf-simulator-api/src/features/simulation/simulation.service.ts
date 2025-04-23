@@ -1,18 +1,19 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, OnApplicationBootstrap } from "@nestjs/common";
 import { Interval } from "@nestjs/schedule";
 import { LowdbService } from "src/core/database/lowdb.service";
 
 @Injectable()
-export class BackgroundProcessService {
+export class SimulationService implements OnApplicationBootstrap {
   private currentModuleSlot = 1;
   constructor(private readonly dbService: LowdbService) {}
 
   @Interval(1000)
-  handleInterval() {
+  onApplicationBootstrap() {
     this.startSimulation();
   }
 
-  private startSimulation() {
+  //   @Interval(1000)
+  startSimulation() {
     const module = this.dbService.getModuleBySlot(this.currentModuleSlot);
 
     if (!module) {
@@ -22,7 +23,7 @@ export class BackgroundProcessService {
 
       return;
     }
-    
+
     const moduleToUpdate = {
       ...module,
       config: {
