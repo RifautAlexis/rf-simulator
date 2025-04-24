@@ -16,7 +16,6 @@ export class SimulationService implements OnApplicationBootstrap {
     this.emitToClients()
   }
 
-  @Interval(1000)
   startSimulation() {
     const modulesLength = this.dbService.getAllModules().length;
     const module = this.dbService.getModuleBySlot(this.currentModuleSlot);
