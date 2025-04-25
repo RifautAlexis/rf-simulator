@@ -1,18 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import { Low, LowSync } from 'lowdb';
 import { JSONFilePreset, JSONFileSyncPreset } from 'lowdb/node';
 import { Module } from '../../common/models/module';
 
 @Injectable()
-export class LowdbService {
+export class LowdbService implements OnModuleInit{
   db: Low<{ modules: Module[] }>;
-
-  constructor() {
-  }
-
-  async initializeDatabase(filName: string, defaultData: { modules: Module[] }): Promise<void> {
-    this.db = await JSONFilePreset<{ modules: Module[] }>(filName, defaultData);
-    console.log('Database initialized with filename:', filName);
+  
+  async onModuleInit() {
+    const fileName = 'default-config.json';
+    const defaultData = { modules: [] };
+    
+    this.db = await JSONFilePreset<{ modules: Module[] }>(fileName, defaultData);
+    console.log('Database initialized with filename:', fileName);
   }
   
   async getAllModules(): Promise<Module[]> {

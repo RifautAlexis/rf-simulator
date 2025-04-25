@@ -3,9 +3,7 @@ import { Global, Module } from "@nestjs/common";
 
 @Global()
 @Module({
-  providers: [
-    LowdbService
-  ],
+  providers: [LowdbService],
   exports: [LowdbService],
 })
 export class DatabaseModule {}
