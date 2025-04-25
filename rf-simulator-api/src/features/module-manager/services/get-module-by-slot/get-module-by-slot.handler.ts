@@ -7,7 +7,7 @@ export class GetModuleBySlotHandler {
   
   constructor(private readonly db: LowdbService) {}
 
-  getBySlotModules(slot: number): Module | undefined {
-    return this.db.getModuleBySlot(slot);
+  async getBySlotModules(slot: number): Promise<Module | undefined> {
+    return await this.db.getModuleBySlot(slot);
   }
 }

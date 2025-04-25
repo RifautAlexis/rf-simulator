@@ -4,80 +4,80 @@
       "slot": 1,
       "name": "Amplifier",
       "config": {
-        "temperature": 0.40251088356002196,
-        "gain": 0.16951989027285208
+        "temperature": -0.9768930601217147,
+        "gain": 0.1340015306488478
       }
     },
     {
       "slot": 2,
       "name": "Power Supply",
       "config": {
-        "temperature": 0.43262811208246266,
-        "gain": -0.12165366855540782
+        "temperature": 0.04956156035259607,
+        "gain": 0.1364948468120415
       }
     },
     {
       "slot": 3,
       "name": "Antenna",
       "config": {
-        "temperature": 0.006353011378684492,
-        "gain": 0.051511368533633584
+        "temperature": -0.22110602256631573,
+        "gain": -0.06112541097893165
       }
     },
     {
       "slot": 4,
       "name": "RF Switch",
       "config": {
-        "temperature": 0.41730038812071335,
-        "gain": -0.17869949068314284
+        "temperature": 0.32020274920252234,
+        "gain": -0.16215503851511281
       }
     },
     {
       "slot": 5,
       "name": "RF Cable",
       "config": {
-        "temperature": 0.6332314618863846,
-        "gain": -0.10653515230617538
+        "temperature": -0.6690319344813846,
+        "gain": 0.008822292587363667
       }
     },
     {
       "slot": 6,
       "name": "RF Load",
       "config": {
-        "temperature": -0.7483616543017799,
-        "gain": -0.17669944167754104
+        "temperature": -0.9298198360474546,
+        "gain": -0.1313872450729361
       }
     },
     {
       "slot": 7,
       "name": "RF Detector",
       "config": {
-        "temperature": 0.1373926588716765,
-        "gain": 0.04309339123005829
+        "temperature": -0.9403256886795903,
+        "gain": -0.19723116603814295
       }
     },
     {
       "slot": 8,
       "name": "RF Mixer",
       "config": {
-        "temperature": -0.48373922685242343,
-        "gain": 0.01357397182570319
+        "temperature": -0.5623469011519799,
+        "gain": -0.08321926221301579
       }
     },
     {
       "slot": 9,
       "name": "RF Filter",
       "config": {
-        "temperature": 0.08063228308204451,
-        "gain": 0.2034646208753933
+        "temperature": -0.44780584069954,
+        "gain": -0.21858048349148873
       }
     },
     {
       "slot": 10,
       "name": "RF Attenuator",
       "config": {
-        "temperature": -0.966844940321741,
-        "gain": 0.10534974045276513
+        "temperature": 0.7235747670284538,
+        "gain": -0.07483723267190967
       }
     }
   ]

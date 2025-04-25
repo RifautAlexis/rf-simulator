@@ -6,41 +6,49 @@ import { SimulationGateway } from "./simulation.gateway";
 @Injectable()
 export class SimulationService implements OnApplicationBootstrap {
   private currentModuleSlot = 1;
+  private isRunning = true; // Flag to control the simulation loop
+  
   constructor(
     private readonly dbService: LowdbService,
-    private readonly simulationGateway: SimulationGateway,
+    private readonly simulationGateway: SimulationGateway
   ) {}
 
   onApplicationBootstrap() {
     this.startSimulation();
-    this.emitToClients()
+    this.emitToClients();
   }
 
-  startSimulation() {
-    const modulesLength = this.dbService.getAllModules().length;
-    const module = this.dbService.getModuleBySlot(this.currentModuleSlot);
+  async startSimulation() {
+    while (this.isRunning) {
+      const modulesLength = (await this.dbService.getAllModules()).length;
+      const module = await this.dbService.getModuleBySlot(this.currentModuleSlot);
 
-    if (!module) {
-      console.log("No module found for slot", this.currentModuleSlot);
+      if (!module) {
+        console.log("No module found for slot", this.currentModuleSlot);
 
-      this.currentModuleSlot >= modulesLength ? this.currentModuleSlot = 1 : this.currentModuleSlot++;
+        this.currentModuleSlot >= modulesLength
+          ? (this.currentModuleSlot = 1)
+          : this.currentModuleSlot++;
 
-      return;
+        return;
+      }
+
+      const moduleToUpdate = {
+        ...module,
+        config: {
+          temperature: Math.random() * 2 - 1,
+          gain: Math.random() * 0.5 - 0.25,
+        },
+      };
+
+      await this.dbService.update(module.slot, moduleToUpdate);
+
+      this.currentModuleSlot >= modulesLength
+        ? (this.currentModuleSlot = 1)
+        : this.currentModuleSlot++;
+
+      console.log("Simulated RF module updates:", moduleToUpdate);
     }
-
-    const moduleToUpdate = {
-      ...module,
-      config: {
-        temperature: Math.random() * 2 - 1,
-        gain: Math.random() * 0.5 - 0.25,
-      },
-    };
-
-    this.dbService.update(module.slot, moduleToUpdate);
-
-    this.currentModuleSlot >= modulesLength ? this.currentModuleSlot = 1 : this.currentModuleSlot++;
-
-    console.log("Simulated RF module updates:", moduleToUpdate);
   }
 
   @Interval(1000)

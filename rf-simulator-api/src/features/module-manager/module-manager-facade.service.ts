@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { GetModuleBySlotHandler } from './services/get-module-by-slot/get-module-by-slot.handler';
 import { GetAllModulesHandler } from './services/get-all-modules/get-all-modules.handler';
+import { Module } from 'src/common/models/module';
 
 @Injectable()
 export class ModuleManagerFacadeService {
@@ -9,11 +10,11 @@ export class ModuleManagerFacadeService {
     private readonly getModuleBySlotService: GetModuleBySlotHandler,
   ) {}
 
-  getAllModules() {
-    return this.getAllModulesService.getAllModules();
+  async getAllModules(): Promise<Module[]> {
+    return await this.getAllModulesService.getAllModules();
   }
 
-  getModuleBySlot(slot: number) {
-    return this.getModuleBySlotService.getBySlotModules(slot);
+  async getModuleBySlot(slot: number): Promise<Module | undefined> {
+    return await this.getModuleBySlotService.getBySlotModules(slot);
   }
 }

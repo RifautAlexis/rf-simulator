@@ -7,7 +7,7 @@ export class GetAllModulesHandler {
   
   constructor(private readonly db: LowdbService) {}
 
-  getAllModules(): Module[] {
-    return this.db.getAllModules();
+  async getAllModules(): Promise<Module[]> {
+    return await this.db.getAllModules();
   }
 }

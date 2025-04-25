@@ -1,9 +1,11 @@
+import { LowdbService } from "src/core/database/lowdb.service";
 import { Global, Module } from "@nestjs/common";
-import { LowdbService } from "./lowdb.service";
 
 @Global()
 @Module({
-  providers: [LowdbService],
+  providers: [
+    LowdbService
+  ],
   exports: [LowdbService],
 })
 export class DatabaseModule {}
