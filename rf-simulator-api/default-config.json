@@ -1,84 +1,31 @@
 {
   "modules": [
     {
+      "kind":0,
       "slot": 1,
-      "name": "Amplifier",
-      "config": {
-        "temperature": 0.2979808823199446,
-        "gain": -0.10976632641947104
-      }
-    },
-    {
-      "slot": 2,
-      "name": "Power Supply",
-      "config": {
-        "temperature": -0.5535099871397513,
-        "gain": -0.13086859833417097
-      }
-    },
-    {
-      "slot": 3,
-      "name": "Antenna",
-      "config": {
-        "temperature": -0.0691899182399256,
-        "gain": -0.14981571012914197
-      }
-    },
-    {
-      "slot": 4,
-      "name": "RF Switch",
-      "config": {
-        "temperature": -0.632386107571492,
-        "gain": 0.10241428952671094
-      }
-    },
-    {
-      "slot": 5,
-      "name": "RF Cable",
-      "config": {
-        "temperature": -0.49550965806264946,
-        "gain": 0.15438462699920652
-      }
-    },
-    {
-      "slot": 6,
-      "name": "RF Load",
-      "config": {
-        "temperature": 0.5704827966308228,
-        "gain": -0.0068294120585036255
-      }
-    },
-    {
-      "slot": 7,
-      "name": "RF Detector",
-      "config": {
-        "temperature": -0.6520244657914063,
-        "gain": 0.1268684361431467
-      }
-    },
-    {
-      "slot": 8,
-      "name": "RF Mixer",
-      "config": {
-        "temperature": 0.6358228298932214,
-        "gain": -0.03964004057159043
-      }
-    },
-    {
-      "slot": 9,
-      "name": "RF Filter",
-      "config": {
-        "temperature": -0.2661504976260547,
-        "gain": -0.12077722222245446
-      }
-    },
-    {
-      "slot": 10,
-      "name": "RF Attenuator",
-      "config": {
-        "temperature": 0.10956651086596647,
-        "gain": -0.12454642098899005
-      }
+      "name": "RF Amplifier",
+      "model": "LNA-3000",
+      "description": "Amplifies the RF signal to improve transmission range.",
+      "settings": [
+        {
+          "kind": 0,
+          "name": "Input Power",
+          "value": 10,
+          "unit": "dBm"
+        },
+        {
+          "kind": 1,
+          "name": "Frequency",
+          "value": 50,
+          "unit": "dBm"
+        },
+        {
+          "kind": 2,
+          "name": "Gain",
+          "value": 25,
+          "unit": "dBm"
+        }
+      ]
     }
   ]
 }

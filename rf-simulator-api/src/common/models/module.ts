@@ -1,6 +1,6 @@
 export interface Module<T = unknown> {
   type: number;
-  name: string;
   slot: number;
+  name: string;
   config: T;
 }
