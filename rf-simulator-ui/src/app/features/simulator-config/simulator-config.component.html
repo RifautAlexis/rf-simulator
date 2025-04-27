@@ -1,0 +1,37 @@
+<nz-collapse>
+  @for (module of modules(); track module.slot) {
+  <nz-collapse-panel [nzHeader]="module.name" [nzActive]="module.active" [nzExtra]="actionIconsTpl">
+    <div class="flex flex-col">
+      <span> slot : {{ module.slot }}</span>
+      <span> model : {{ module.model }}</span>
+      <span> description : {{ module.description }}</span>
+      <div class="flex">
+        <div class="flex flex-col w-1/2">
+          <span class="text-2xl underline font-bold"> Settings </span>
+          @for (setting of module.settings; track $index) {
+          <div class="flex">
+            <span>{{ setting.name }} : </span>
+            <span>{{ setting.currentValue }}</span>
+          </div>
+          }
+        </div>
+        <div class="flex flex-col w-1/2">
+          <span class="text-2xl underline font-bold"> Metrics </span>
+          @for (metric of module.metrics; track $index) {
+            <div class="flex">
+              <span>{{ metric.name }} :</span>
+              <span>{{ metric.currentValue }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </nz-collapse-panel>
+  
+  <ng-template #actionIconsTpl>
+    <nz-icon nzType="delete" (click)="$event.stopPropagation(); deleteModule(module)" />
+  </ng-template>
+  }
+</nz-collapse>
+
+
