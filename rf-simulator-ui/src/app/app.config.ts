@@ -6,10 +6,10 @@ import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideNzIcons } from 'ng-zorro-antd/icon';
 
-import { DeleteOutline } from '@ant-design/icons-angular/icons';
+import { DeleteOutline, PlusOutline } from '@ant-design/icons-angular/icons';
 import { IconDefinition } from '@ant-design/icons-angular';
 
-const icons: IconDefinition[] = [DeleteOutline];
+const icons: IconDefinition[] = [DeleteOutline, PlusOutline];
 
 export const appConfig: ApplicationConfig = {
   providers: [

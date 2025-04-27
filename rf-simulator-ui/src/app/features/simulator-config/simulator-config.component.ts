@@ -3,10 +3,11 @@ import { Component, signal } from '@angular/core';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { ModuleConfig } from './models/module-config';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzFloatButtonModule } from 'ng-zorro-antd/float-button';
 
 @Component({
   templateUrl: './simulator-config.component.html',
-  imports: [CommonModule, NzCollapseModule, NzIconModule],
+  imports: [CommonModule, NzCollapseModule, NzIconModule, NzFloatButtonModule],
 })
 export class SimulatorConfigComponent {
   modules = signal<(ModuleConfig & { active: boolean })[]>([]);
@@ -48,5 +49,24 @@ export class SimulatorConfigComponent {
 
   deleteModule(module: ModuleConfig): void {
     this.modules.update((modules) => modules.filter((m) => m.slot !== module.slot));
+  }
+
+  addModule(): void {
+    this.modules.update((modules) => {
+      const newSlot = modules.length ? Math.max(...modules.map((m) => m.slot)) + 1 : 1;
+
+      return [
+        ...modules,
+        {
+          slot: newSlot,
+          name: `Module ${newSlot}`,
+          model: `Model ${String.fromCharCode(64 + newSlot)}`,
+          description: `Description of Module ${newSlot}`,
+          settings: [],
+          metrics: [],
+          active: true,
+        },
+      ];
+    });
   }
 }

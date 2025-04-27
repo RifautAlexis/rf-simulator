@@ -1,3 +1,8 @@
+<nz-float-button nzType="primary" style="right: 24px" [nzIcon]="icon" (nzOnClick)="addModule()"></nz-float-button>
+<ng-template #icon>
+  <nz-icon nzType="plus" nzTheme="outline" />
+</ng-template>
+
 <nz-collapse>
   @for (module of modules(); track module.slot) {
   <nz-collapse-panel [nzHeader]="module.name" [nzActive]="module.active" [nzExtra]="actionIconsTpl">
